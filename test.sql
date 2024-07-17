@@ -1,7 +1,7 @@
 # check if database exists 
 USE ShopDB; 
 
-# check if table "Products" exists, all required columnts are in place, and have correct types 
+# check if table "Products" exists, all required columns are in place, and have correct types
 INSERT INTO Products (Name, Description, Price, WarehouseAmount)
 	VALUES ('Product', 'Product Desctiption', 5, 42);
 
