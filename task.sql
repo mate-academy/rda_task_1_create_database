@@ -2,31 +2,31 @@ CREATE DATABASE IF NOT EXISTS ShopDB;
 
 USE ShopDB;
 
-CREATE TABLE `Order`(
-    `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `customer_id` BIGINT NOT NULL,
+CREATE TABLE `Orders`(
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `customer_id` INT NOT NULL,
     `date` DATE NOT NULL
 );
-CREATE TABLE `Order_Items`(
-    `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `order_id` BIGINT NOT NULL,
-    `product_id` BIGINT NOT NULL
+CREATE TABLE `OrderItems`(
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `order_id` INT NOT NULL,
+    `product_id` INT NOT NULL
 );
-CREATE TABLE `Product`(
+CREATE TABLE `Products`(
     `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` VARCHAR(50) NOT NULL,
-    `description` TEXT NOT NULL,
+    `description` VARCHAR(100) NOT NULL,
     `price` INT NOT NULL,
-    `warehouse_amount` BIGINT NOT NULL
+    `warehouse_amount` INT NOT NULL
 );
-CREATE TABLE `Customer`(
-    `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE `Customers`(
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `first_name` VARCHAR(50) NOT NULL,
     `last_name` VARCHAR(100) NOT NULL
 );
 ALTER TABLE
-    `Order` ADD CONSTRAINT `order_customer_id_foreign` FOREIGN KEY(`customer_id`) REFERENCES `Customer`(`id`);
+    `Orders` ADD CONSTRAINT `order_customer_id_foreign` FOREIGN KEY(`customer_id`) REFERENCES `Customers`(`id`);
 ALTER TABLE
-    `Order_Items` ADD CONSTRAINT `order_items_order_id_foreign` FOREIGN KEY(`order_id`) REFERENCES `Order`(`id`);
+    `OrderItems` ADD CONSTRAINT `order_items_order_id_foreign` FOREIGN KEY(`order_id`) REFERENCES `Orders`(`id`);
 ALTER TABLE
-    `Order_Items` ADD CONSTRAINT `order_items_product_id_foreign` FOREIGN KEY(`product_id`) REFERENCES `Product`(`id`);
+    `OrderItems` ADD CONSTRAINT `order_items_product_id_foreign` FOREIGN KEY(`product_id`) REFERENCES `Products`(`id`);
