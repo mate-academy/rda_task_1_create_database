@@ -1,0 +1,46 @@
+{
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "previewLimit": 50,
+      "server": "127.0.0.1",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "MySQL-Server",
+      "database": "ShopDB",
+      "username": "mysqluser"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "previewLimit": 50,
+      "server": "10.0.2.15",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "MySQL-Server",
+      "database": "ShopDB",
+      "username": "mysqluser",
+      "askForPassword": true
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "previewLimit": 50,
+      "server": "10.0.2.15",
+      "port": 3306,
+      "driver": "MySQL",
+      "password": "P@ssw0rd",
+      "name": "MySQL-Server1",
+      "database": "ShopDB",
+      "username": "mysqluser",
+      "connectionTimeout": 200
+    }
+  ]
+}
