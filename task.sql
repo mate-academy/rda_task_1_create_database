@@ -26,7 +26,7 @@ CREATE TABLE Customers (
 -- Create the Orders table
 CREATE TABLE Orders (
     ID INT AUTO_INCREMENT PRIMARY KEY,
-    CustomerID INT,
+    CustomerID INT NULL,
     Date DATE NOT NULL,
     FOREIGN KEY (CustomerID) REFERENCES Customers(ID) ON DELETE SET NULL
 );
@@ -34,8 +34,8 @@ CREATE TABLE Orders (
 -- Create the OrderItems table
 CREATE TABLE OrderItems (
     ID INT AUTO_INCREMENT PRIMARY KEY,
-    OrderID INT,
-    ProductID INT,
+    OrderID INT NULL,
+    ProductID INT NULL,
     FOREIGN KEY (OrderID) REFERENCES Orders(ID) ON DELETE SET NULL,
     FOREIGN KEY (ProductID) REFERENCES Products(ID) ON DELETE SET NULL
 );
