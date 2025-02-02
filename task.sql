@@ -21,6 +21,7 @@ CREATE TABLE Customers(
     PRIMARY KEY (ID)
 );
 
+CREATE TABLE Orders (
     ID INT AUTO_INCREMENT,
     CustomerID INT,
     Date DATE,
