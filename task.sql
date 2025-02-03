@@ -1,1 +1,45 @@
 # Write your SQL code for the database creation here. Good luck! 
+-- 1. Створюємо базу даних
+CREATE DATABASE ShopDB;
+
+-- 2. Використовуємо базу даних ShopDB
+USE ShopDB;
+
+-- 3. Створюємо таблицю Products
+CREATE TABLE Products (
+    ID INT AUTO_INCREMENT,
+    Name VARCHAR(50),
+    Description VARCHAR(100),
+    Price INT,
+    WareHouseAmount INT,
+    PRIMARY KEY (ID)
+);
+
+-- 4. Створюємо таблицю Customers
+CREATE TABLE Customers (
+    ID INT AUTO_INCREMENT,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100),
+    Address VARCHAR(100),
+    PRIMARY KEY (ID)
+);
+
+-- 5. Створюємо таблицю Orders
+CREATE TABLE Orders (
+    ID INT AUTO_INCREMENT,
+    CustomerID INT,
+    Date DATE,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (CustomerID) REFERENCES Customers (ID) ON DELETE SET NULL
+);
+
+-- 6. Створюємо таблицю OrderItems
+CREATE TABLE OrderItems (
+    ID INT AUTO_INCREMENT,
+    OrderID INT,
+    ProductID INT,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (OrderID) REFERENCES Orders (ID) ON DELETE SET NULL,
+    FOREIGN KEY (ProductID) REFERENCES Products (ID) ON DELETE SET NULL
+);
