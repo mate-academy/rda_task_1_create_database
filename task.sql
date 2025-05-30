@@ -15,7 +15,7 @@ create table Customers (
     FirstName varchar(50),
     LastName varchar(50),
     Email varchar(100),
-    Adress varchar(100),
+    Address varchar(100),
     primary key (ID)
 );
 
