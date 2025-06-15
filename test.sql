@@ -1,4 +1,5 @@
 # check if database exists 
+
 USE ShopDB; 
 
 # check if table "Products" exists, all required columnts are in place, and have correct types 
