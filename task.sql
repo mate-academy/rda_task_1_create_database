@@ -1,1 +1,48 @@
 # Write your SQL code for the database creation here. Good luck! 
+DROP DATABASE IF EXISTS ShopDB;
+CREATE DATABASE ShopDB;
+USE ShopDB;
+
+
+CREATE TABLE Products (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(100),
+    Description VARCHAR(255),
+    Price INT,
+    WarehouseAmount INT
+);
+
+CREATE TABLE Customers (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100),
+    Address VARCHAR(100)
+);
+
+CREATE TABLE Orders (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    CustomerID INT NULL,
+    Date DATE,
+    FOREIGN KEY (CustomerID) REFERENCES Customers(ID) ON DELETE SET NULL
+);
+
+CREATE TABLE OrderItems (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    OrderID INT NULL,
+    ProductID INT NULL,
+    FOREIGN KEY (OrderID) REFERENCES Orders(ID) ON DELETE SET NULL,
+    FOREIGN KEY (ProductID) REFERENCES Products(ID) ON DELETE SET NULL
+);
+
+
+CREATE INDEX Email ON Customers (Email);
+
+
+CREATE INDEX CustomerID ON Orders (CustomerID);
+
+CREATE INDEX OrderID ON OrderItems (OrderID);
+CREATE INDEX ProductID ON OrderItems (ProductID);
+
+
+CREATE INDEX Name ON Products (Name);
