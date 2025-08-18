@@ -2,12 +2,14 @@
 CREATE DATABASE IF NOT EXISTS ShopDB;
 USE ShopDB;
 
+
+
 -- 2. Таблица продуктов
 CREATE TABLE Products (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(100) NOT NULL,
-    Description VARCHAR(255),
-    Price DECIMAL(10,2) NOT NULL,
+    Description VARCHAR(100),
+    Price INT NOT NULL,
     WarehouseAmount INT NOT NULL
 );
 
