@@ -1,1 +1,36 @@
-# Write your SQL code for the database creation here. Good luck! 
+CREATE DATABASE IF NOT EXISTS ShopDB;
+USE ShopDB;
+
+
+CREATE TABLE Products (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(50) NOT NULL,
+    Description VARCHAR(100),
+    Price INT NOT NULL,
+    WarehouseAmount INT NOT NULL
+);
+
+
+CREATE TABLE Customers (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    Email VARCHAR(50) NOT NULL,
+    Address VARCHAR(100)
+);
+
+
+CREATE TABLE Orders (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    CustomerID INT NULL,
+    Date DATE,
+    FOREIGN KEY (CustomerID) REFERENCES Customers(ID) ON DELETE SET NULL
+);
+
+CREATE TABLE OrderItems (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    OrderID INT NULL,
+    ProductID INT NULL,
+    FOREIGN KEY (OrderID) REFERENCES Orders(ID) ON DELETE SET NULL,
+    FOREIGN KEY (ProductID) REFERENCES Products(ID) ON DELETE SET NULL
+);
