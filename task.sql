@@ -7,7 +7,7 @@ use ShopDB;
 CREATE TABLE Products (
   ID INT PRIMARY KEY AUTO_INCREMENT,
   Name VARCHAR(50) NOT NULL,
-  Description TEXT,
+  Description VARCHAR(50) NOT NULL,
   Price INT NOT NULL,
   WarehouseAmount INT NOT NULL
 );
@@ -17,12 +17,12 @@ CREATE TABLE Customers (
   FirstName VARCHAR(50) NOT NULL,
   LastName VARCHAR(50) NOT NULL,
   Email VARCHAR(100) NOT NULL,
-  Address TEXT
+  Address VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Orders (
   ID INT PRIMARY KEY AUTO_INCREMENT,
-  CustomerID INT NOT NULL,
+  CustomerID INT,
   Date DATE NOT NULL,
   FOREIGN KEY (CustomerID) REFERENCES Customers(ID) ON DELETE SET NULL
 );
