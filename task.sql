@@ -6,8 +6,8 @@ CREATE TABLE Products (
     ID INT AUTO_INCREMENT,
     PRIMARY KEY (ID),
     Name VARCHAR(50),
-    Description VARCHAR(200),
-    Price DECIMAL(10, 2),
+    Description VARCHAR(100),
+    Price INT,
     WarehouseAmount INT
 );
 
@@ -24,7 +24,7 @@ CREATE TABLE Orders (
     ID INT AUTO_INCREMENT,
     PRIMARY KEY (ID),
     CustomerID INT,
-    FOREIGN KEY (CustomerID) REFERENCES Customers(ID) ON DELETE CASCADE,
+    FOREIGN KEY (CustomerID) REFERENCES Customers(ID) ON DELETE SET NULL,
     Date DATE
 );
 
@@ -32,7 +32,7 @@ CREATE TABLE OrderItems(
     ID INT AUTO_INCREMENT,
     PRIMARY KEY (ID),
     OrderID INT,
-    FOREIGN KEY (OrderID) REFERENCES Orders(ID) ON DELETE CASCADE,
+    FOREIGN KEY (OrderID) REFERENCES Orders(ID) ON DELETE SET NULL,
     ProductID INT,
-    FOREIGN KEY (ProductID) REFERENCES Products(ID) ON DELETE NO ACTION
+    FOREIGN KEY (ProductID) REFERENCES Products(ID) ON DELETE SET NULL
 );
