@@ -1,4 +1,4 @@
-use TestDB;
+use ShopDB;
 CREATE TABLE Products(
     ID INT PRIMARY KEY AUTO_INCREMENT,
     Name VARCHAR(50) NOT NULL,
