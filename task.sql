@@ -1,17 +1,18 @@
-use ShopDB;
+create database ShopDB;
+USE ShopDB;
 CREATE TABLE Products(
     ID INT PRIMARY KEY AUTO_INCREMENT,
-    Name VARCHAR(50) NOT NULL,
-    Description TEXT,
-    Price DECIMAL(10, 2) NOT NULL,
-    WarehouseAmount INT NOT NULL
+    Name VARCHAR(50),
+    Description VARCHAR(100),
+    Price INT,
+    WarehouseAmount INT
 );
 CREATE TABLE Customers(
     ID INT PRIMARY KEY AUTO_INCREMENT,
     FirstName VARCHAR(50),
     LastName VARCHAR(50),
-    email VARCHAR(50),
-    address VARCHAR(100)
+    Email VARCHAR(50),
+    Address VARCHAR(100)
 );
 CREATE TABLE Orders(
     ID INT PRIMARY KEY AUTO_INCREMENT,
