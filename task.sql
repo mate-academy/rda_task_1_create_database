@@ -6,16 +6,15 @@ CREATE TABLE Products (
     Name VARCHAR(50),
     Description VARCHAR(100),
     Price INT,
-    WarehouseAmount INT,
-    PRIMARY KEY (ID)
+    WarehouseAmount INT
 );
 
 CREATE TABLE Customers (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     FirstName VARCHAR(50),
     LastName VARCHAR(50),
-    Email VARCHAR(50),
-    Address VARCHAR(50)
+    Email VARCHAR(100),
+    Address VARCHAR(100)
 );
 
 CREATE TABLE Orders (
@@ -30,6 +29,6 @@ CREATE TABLE OrderItems (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     OrderID INT,
     ProductID INT,
-    FOREIGN KEY (OrderID) REFERENCES Orders(ID) ON DELETE SET NULL
+    FOREIGN KEY (OrderID) REFERENCES Orders(ID) ON DELETE SET NULL,
     FOREIGN KEY (ProductID) REFERENCES Products(ID) ON DELETE SET NULL
 );
