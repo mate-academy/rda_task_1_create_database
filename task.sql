@@ -6,7 +6,7 @@ CREATE TABLE Products (
     Description VARCHAR(50),
     Price INT,
     WarehouseAmount INT,
-    PRIMARY KEY (ProductsID)
+    PRIMARY KEY (ID)
 );
 CREATE TABLE Customers (
     ID INT AUTO_INCREMENT,
@@ -14,23 +14,23 @@ CREATE TABLE Customers (
     LastName VARCHAR(50),
     Email VARCHAR(50),
     Address VARCHAR(50),
-    PRIMARY KEY (CustomersID)
+    PRIMARY KEY (ID)
 );
 CREATE TABLE Orders (
     ID INT AUTO_INCREMENT,
     CustomerID INT,
     Date DATE,
-    PRIMARY KEY (OrdersID),
-    FOREIGN KEY (CustomerID) ON DELETE SET NULL
-        REFERENCES Customers(CustomerID)
+    PRIMARY KEY (ID),
+    FOREIGN KEY (CustomerID)
+        REFERENCES Customers(ID) ON DELETE SET NULL
 );
 CREATE TABLE OrderItems (
     ID INT AUTO_INCREMENT,
     OrderID INT,
     ProductID INT,
-    PRIMARY KEY (OrderItemsID),
-    FOREIGN KEY (OrderID) ON DELETE SET NULL
-        REFERENCES Orders(OrderID),
-    FOREIGN KEY (ProductID) ON DELETE SET NULL
-        REFERENCES Products(ProductID)
+    PRIMARY KEY (ID),
+    FOREIGN KEY (OrderID)
+        REFERENCES Orders(ID) ON DELETE SET NULL,
+    FOREIGN KEY (ProductID)
+        REFERENCES Products(ID) ON DELETE SET NULL
 );
