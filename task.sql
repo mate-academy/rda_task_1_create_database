@@ -1,7 +1,7 @@
 CREATE DATABASE ShopDB;
 USE ShopDB;
 CREATE TABLE Products (
-    ProductsID INT AUTO_INCREMENT,
+    ID INT AUTO_INCREMENT,
     Name VARCHAR(50),
     Description VARCHAR(50),
     Price INT,
@@ -9,7 +9,7 @@ CREATE TABLE Products (
     PRIMARY KEY (ProductsID)
 );
 CREATE TABLE Customers (
-    CustomersID INT AUTO_INCREMENT,
+    ID INT AUTO_INCREMENT,
     FirstName VARCHAR(50),
     LastName VARCHAR(50),
     Email VARCHAR(50),
@@ -17,20 +17,20 @@ CREATE TABLE Customers (
     PRIMARY KEY (CustomersID)
 );
 CREATE TABLE Orders (
-    OrdersID INT AUTO_INCREMENT,
-    CustomersID INT,
+    ID INT AUTO_INCREMENT,
+    CustomerID INT,
     Date DATE,
     PRIMARY KEY (OrdersID),
-    FOREIGN KEY (CustomersID)
-        REFERENCES Customers(CustomersID)
+    FOREIGN KEY (CustomerID) ON DELETE SET NULL
+        REFERENCES Customers(CustomerID)
 );
 CREATE TABLE OrderItems (
-    OrderItemsID INT AUTO_INCREMENT,
-    OrdersID INT,
-    ProductsID INT,
+    ID INT AUTO_INCREMENT,
+    OrderID INT,
+    ProductID INT,
     PRIMARY KEY (OrderItemsID),
-    FOREIGN KEY (OrdersID)
-        REFERENCES Orders(OrdersID),
-    FOREIGN KEY (ProductsID)
-        REFERENCES Products(ProductsID)
+    FOREIGN KEY (OrderID) ON DELETE SET NULL
+        REFERENCES Orders(OrderID),
+    FOREIGN KEY (ProductID) ON DELETE SET NULL
+        REFERENCES Products(ProductID)
 );
