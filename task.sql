@@ -13,7 +13,7 @@ CREATE TABLE Customers (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     FirstName VARCHAR(50),
     LastName VARCHAR(50),
-    Email VARCHAR(254),
+    Email VARCHAR(100),
     Address VARCHAR(50)
 );
 
