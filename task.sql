@@ -1,9 +1,9 @@
-CREATE DATABASE IN NOT EXISTS ShopDB;
+CREATE DATABASE IF NOT EXISTS ShopDB;
 
 use ShopDB;
 
 create table Products (
-      ID INT AUTO_INCREMENT PRIMARY KEY;
+      ID INT AUTO_INCREMENT PRIMARY KEY,
       Name VARCHAR(50),
       Description VARCHAR(100),
       Price int,
