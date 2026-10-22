@@ -30,4 +30,5 @@ CREATE TABLE OrderItems (
     OrderID INT,
     ProductID INT,
     FOREIGN KEY (OrderID) REFERENCES Orders(ID) ON DELETE SET NULL
+    FOREIGN KEY (ProductID) REFERENCES Products(ID) ON DELETE SET NULL
 );
