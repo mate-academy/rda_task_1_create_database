@@ -15,7 +15,7 @@ CREATE TABLE Customers (
     FirstName VARCHAR(50),
     LastName VARCHAR(50),
     Email VARCHAR(50),
-    Address VARCHAR(50)
+    Address VARCHAR(100)
 );
 
 CREATE TABLE Orders (
