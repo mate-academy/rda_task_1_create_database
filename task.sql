@@ -7,7 +7,7 @@ CREATE TABLE Products (
     Name varchar(50),
     Description varchar(50),
     Price int,
-    WarehouseAmount varchar(50),
+    WarehouseAmount int,
     primary key (ID)
 );
 
