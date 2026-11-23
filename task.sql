@@ -6,7 +6,7 @@ CREATE TABLE Products (
     ID INT auto_increment,
     Name varchar(50),
     Description varchar(50),
-    Price decimal(10,2),
+    Price int,
     WarehouseAmount varchar(50),
     primary key (ID)
 );
